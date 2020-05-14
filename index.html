@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles/style.css">
+    <title>Callie Planner</title>
+</head>
+<body>
+    <!-- header begins -->
+    <header>
+        <div class="wrapper">
+            <h1>Callie</h1>
+            <button class="newEvent">+ New</button>
+        </div>
+    </header>
+    <!-- header ends -->
+
+    <!-- main begins -->
+    <main>
+        <div class="wrapper">
+
+            <!-- buttons for next or past months -->
+            <ul class="monthNav">
+                <li><button class="changeMonth" id="pastMonth"><</button></li>
+                <li><button class="changeMonth" id="futureMonth">></button></li>
+            </ul>
+
+            <!-- the date -->
+            <h2 class="calendarTitle" id="calendarTitle"></h2>
+
+            <!-- where the calendar will be put into -->
+            <table class="calendarContainer" id="calendar">
+                <tr>
+                    <th>Sunday</th>
+                    <th>Monday</th>
+                    <th>Tuesday</th>
+                    <th>Wednesday</th>
+                    <th>Thursday</th>
+                    <th>Friday</th>
+                    <th>Saturday</th>
+                </tr>
+            </table>
+        </div>
+    </main>
+    <!-- main ends -->
+
+    <!-- my js -->
+    <script src="scripts.js"></script>
+</body>
+</html>

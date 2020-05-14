@@ -11,26 +11,76 @@ const calliePlanner = {};
 // make array of months
 calliePlanner.months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
+// store the current month and year in global variables
+calliePlanner.currentMonth = '';
+calliePlanner.currentYear = '';
+
 // make array of days of the week
 // calliePlanner.days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
+// make a function to get the next month
+calliePlanner.nextMonth = ()=>{
+
+    if(calliePlanner.currentMonth === 11){
+        // add one to the year and set the month to 0
+        calliePlanner.currentYear = calliePlanner.currentYear + 1;
+        calliePlanner.currentMonth = 0;
+
+
+        // call the show calendar function again
+        calliePlanner.showCalendar();
+    } else {
+        // add one to the current month
+        calliePlanner.currentMonth = calliePlanner.currentMonth + 1;
+
+        // call the show calendar function again
+        calliePlanner.showCalendar();
+    }
+}
+
+// make a function to get the next month
+calliePlanner.pastMonth = ()=>{
+
+    if(calliePlanner.currentMonth === 0){
+        // minus one from the year and set the month to 11
+        calliePlanner.currentYear = calliePlanner.currentYear - 1;
+        calliePlanner.currentMonth = 11;
+
+
+        // call the show calendar function again
+        calliePlanner.showCalendar();
+    } else {
+        // minus one from the current month
+        calliePlanner.currentMonth = calliePlanner.currentMonth - 1;
+
+        // call the show calendar function again
+        calliePlanner.showCalendar();
+    }
+}
+
 
 // make function that gets number of days of the month
-calliePlanner.getNumOfDays = (year, month) => {
+calliePlanner.getNumOfDays = () => {
     // check what the date is at 32 days, then subtract from 32 to get the number of days in the month
-    return 32 - (new Date(year, month, 32).getDate());
+    return 32 - (new Date(calliePlanner.currentYear, calliePlanner.currentMonth, 32).getDate());
 }
 
 // make a function that displays the calendar in a table
-calliePlanner.showCalendar = (year, month) => {
+calliePlanner.showCalendar = () => {
+
+    console.log(calliePlanner.currentMonth, calliePlanner.currentYear);
+
     // get first day of the current month
-    let firstDay = (new Date(year, month)).getDay();
+    let firstDay = (new Date(calliePlanner.currentYear, calliePlanner.currentMonth)).getDay();
 
     // call function to get the number of days in the month
-    let daysInMonth = calliePlanner.getNumOfDays(year, month);
+    let daysInMonth = calliePlanner.getNumOfDays(calliePlanner.currentYear, calliePlanner.currentMonth);
 
     // grab the calendar element
-    let calendar = document.getElementById('calendar');
+    let calendar = document.getElementById('dynamicCalendar');
+
+    // clear previous cells
+    calendar.innerHTML = '';
 
     // make for loop within for loop to append elements to the calendar
     // first loop to create the rows
@@ -82,33 +132,30 @@ calliePlanner.showCalendar = (year, month) => {
     }
 
     // grab the title of month and change it based on month
-    document.getElementById('calendarTitle').innerHTML = `${calliePlanner.months[month]} ${year}`;
+    document.getElementById('calendarTitle').innerHTML = `${calliePlanner.months[calliePlanner.currentMonth]} ${calliePlanner.currentYear}`;
 
 }
 
 // make function for event listeners
-calliePlanner.eventListeners = (currentMonth, currentYear) =>{
+calliePlanner.eventListeners = () =>{
 
-    // store the current month and year in local variables
-    let month = currentMonth;
-    let year = currentYear;
-
-    // console.log('month:' + month, 'year:' + year);
 
     // add event listeners for the buttons to change month
     
     // store the buttons in a variable
     const monthButtons = document.querySelectorAll('.changeMonth');
 
-    // add the click add event listener
+    // add the click event listener
     monthButtons.forEach((button)=>{
         button.addEventListener('click',(e)=>{
-            if(e.target.id === 'futureMonth'){
-                console.log('increase')
-            } else if(e.target.id === 'pastMonth'){
-                console.log('decrease')
-            }
 
+            // call function to change the month
+            if(e.target.id === 'futureMonth'){
+                calliePlanner.nextMonth();
+
+            } else if (e.target.id === 'pastMonth'){
+                calliePlanner.pastMonth();
+            }
         })
     })
 
@@ -119,15 +166,15 @@ calliePlanner.eventListeners = (currentMonth, currentYear) =>{
 calliePlanner.init = ()=>{
     
     // get current date information
-    let thisMonth = new Date().getMonth();
-    let thisYear = new Date().getFullYear();
+    calliePlanner.currentMonth = new Date().getMonth();
+    calliePlanner.currentYear = new Date().getFullYear();
 
     
     // call function that displays calendar into a table
-    calliePlanner.showCalendar(thisYear, thisMonth);
+    calliePlanner.showCalendar();
 
     // call function for event listeners
-    calliePlanner.eventListeners(thisMonth, thisYear);
+    calliePlanner.eventListeners();
 }
 
 // document ready

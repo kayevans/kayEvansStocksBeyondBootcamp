@@ -1,0 +1,41 @@
+// overall header styles
+header{
+    background-color: $secondaryColour;
+    padding: 15px 0;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.178);
+}
+
+// h1 styles
+h1{
+    font-size: 2.8rem;
+    letter-spacing: 0.15rem;
+    color: white;
+    font-weight: 400;
+}
+
+// float the button and heading beside each other
+header .wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+// the new event button styles
+header .newEvent{
+    padding: 10px 40px;
+    background-color:$accentColour;
+    color: white;
+    border-radius: 25px;
+    letter-spacing: 0.1rem;
+    font-weight: 300;
+    transition: all 0.5s ease;
+
+    &:hover,
+    &:focus{
+        background-color: rgb(71, 74, 97);
+    }
+}
+
+
+

@@ -1,0 +1,54 @@
+// remove default padding and margin
+*,
+h1{
+    margin: 0;
+    padding: 0;
+}
+
+
+// image styles
+img{
+    max-width: 100%;
+    display: block;
+    height: auto;
+}
+
+// default font size
+html{
+    font-size: 62.5%;
+}
+
+// remove styles for lists
+ul{
+    list-style-type: none;
+}
+
+// button styles
+button{
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+}
+
+// overall body font styles
+body,
+button{
+    font-family: $mainFont;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    font-weight: 300;
+}
+
+// body styles
+body{
+    // background-color: $mainColour;
+    color: $fontColour;
+}
+
+
+// wrapper styles
+.wrapper{
+    max-width: 1200px;
+    width: 80%;
+    margin: 0 auto;
+}

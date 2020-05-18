@@ -68,7 +68,8 @@ calliePlanner.getNumOfDays = () => {
 // make a function that displays the calendar in a table
 calliePlanner.showCalendar = () => {
 
-    console.log(calliePlanner.currentMonth, calliePlanner.currentYear);
+    // make variables for the current date
+    let today = new Date();
 
     // get first day of the current month
     let firstDay = (new Date(calliePlanner.currentYear, calliePlanner.currentMonth)).getDay();
@@ -117,6 +118,11 @@ calliePlanner.showCalendar = () => {
                 // make a cell
                 let cell = row.insertCell();
 
+                // check if the date matches todays date, then add class
+                if(date === today.getDate() && calliePlanner.currentYear === today.getFullYear() && calliePlanner.currentMonth === today.getMonth()){
+                    cell.classList.add('today');
+                }
+
                 // add text to the cell, make it empty
                 let createTextNode = document.createElement('p');
                 let text = document.createTextNode(date);
@@ -126,6 +132,8 @@ calliePlanner.showCalendar = () => {
 
                 // append the num to the cell
                 cell.appendChild(createTextNode);
+
+                
             }
         }
 

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="styles/style.css">
     <!-- google fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;600;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
     <title>Callie Planner</title>
 </head>
 <body>
@@ -23,26 +23,29 @@
     <main>
         <div class="wrapper">
 
-            <!-- buttons for next or past months -->
-            <ul class="monthNav">
-                <li><button class="changeMonth" id="pastMonth"><</button></li>
-                <li><button class="changeMonth" id="futureMonth">></button></li>
-            </ul>
-
-            <!-- the date -->
-            <h2 class="calendarTitle" id="calendarTitle"></h2>
+            <!-- container for the top part of the calendar -->
+            <div class="calendarNav">
+                <!-- buttons for next or past months -->
+                <ul class="monthNav">
+                    <li><button class="changeMonth pastMonth" id="pastMonth"><</button></li>
+                    <li><button class="changeMonth futureMonth" id="futureMonth">></button></li>
+                </ul>
+    
+                <!-- the date -->
+                <h2 class="calendarTitle" id="calendarTitle"></h2>
+            </div>
 
             <!-- calendar -->
             <table id="calendar" class="calendar">
                 <thead>
                     <tr>
-                        <th>Sunday</th>
-                        <th>Monday</th>
-                        <th>Tuesday</th>
-                        <th>Wednesday</th>
-                        <th>Thursday</th>
-                        <th>Friday</th>
-                        <th>Saturday</th>
+                        <th>Sun</th>
+                        <th>Mon</th>
+                        <th>Tue</th>
+                        <th>Wed</th>
+                        <th>Thu</th>
+                        <th>Fri</th>
+                        <th>Sat</th>
                     </tr>
                 </thead>
                 <!-- where the calendar will be put into -->

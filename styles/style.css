@@ -279,6 +279,14 @@ body {
   margin: 0 auto;
 }
 
+.today p {
+  display: inline-block;
+  padding: 5px 8px;
+  border-radius: 50%;
+  color: white;
+  background-color: #8D91AA;
+}
+
 header {
   background-color: #8D91AA;
   padding: 15px 0;
@@ -327,12 +335,68 @@ header .newEvent:hover, header .newEvent:focus {
 .calendar {
   width: 100%;
   text-align: center;
+  border-collapse: collapse;
+}
+
+.calendarNav {
+  padding: 20px 0;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 2fr 1fr;
+      grid-template-columns: 1fr 2fr 1fr;
+}
+
+.monthNav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.monthNav .changeMonth {
+  padding: 8px 20px;
+  font-size: 2rem;
+  background-color: #60647c;
+  color: white;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.monthNav .changeMonth:hover, .monthNav .changeMonth:focus {
+  background-color: #474a61;
+}
+
+.monthNav .futureMonth {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 
 .calendarTitle {
   text-align: center;
+  font-size: 3rem;
+  font-weight: normal;
 }
 
-th {
+.calendar th,
+.calendar td {
+  border: 1px solid #cfcfcf;
+  width: calc(100%/7);
+}
+
+.calendar th {
   text-transform: uppercase;
+  padding: 5px 0;
+}
+
+.calendar td {
+  height: 100px;
+  vertical-align: top;
+  padding: 10px 0;
 }

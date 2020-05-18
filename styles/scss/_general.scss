@@ -52,3 +52,12 @@ body{
     width: 80%;
     margin: 0 auto;
 }
+
+// styles for the class of today
+.today p{
+    display: inline-block;
+    padding: 5px 8px;
+    border-radius: 50%;
+    color: white;
+    background-color: $secondaryColour;
+}
